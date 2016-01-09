@@ -4,7 +4,7 @@ email: thegrumpydictator@gmail.com
 description: > 
   Firefly III a personal finances manager.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "https://jc5.github.io/firefly-iii" # the base hostname & protocol for your site
+url: "http://jc5.github.io/firefly-iii" # the base hostname & protocol for your site
 twitter_username: x
 github_username:  y
 
