@@ -2,9 +2,9 @@
 
 namespace FireflyIII\Support;
 
-use FireflyIII\Models\Transaction;
-use FireflyIII\Models\TransactionCurrency;
-use FireflyIII\Models\TransactionJournal;
+use FireflyIII\Models\{
+    Transaction, TransactionCurrency, TransactionJournal
+};
 use Illuminate\Support\Collection;
 use NumberFormatter;
 use Preferences as Prefs;

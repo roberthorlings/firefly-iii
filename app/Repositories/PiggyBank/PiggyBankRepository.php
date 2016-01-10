@@ -5,9 +5,10 @@ namespace FireflyIII\Repositories\PiggyBank;
 use Auth;
 use Carbon\Carbon;
 use DB;
-use FireflyIII\Models\PiggyBank;
-use FireflyIII\Models\PiggyBankEvent;
 use Illuminate\Support\Collection;
+use FireflyIII\Models\{
+    PiggyBank, PiggyBankEvent
+};
 
 /**
  * Class PiggyBankRepository

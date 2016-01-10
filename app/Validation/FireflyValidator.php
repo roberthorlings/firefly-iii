@@ -6,13 +6,13 @@ use Auth;
 use Config;
 use Crypt;
 use DB;
-use FireflyIII\Models\Account;
-use FireflyIII\Models\AccountType;
-use FireflyIII\Models\PiggyBank;
 use FireflyIII\User;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Validation\Validator;
 use Symfony\Component\Translation\TranslatorInterface;
+use FireflyIII\Models\{
+    Account, AccountType, PiggyBank
+};
 
 /**
  * Class FireflyValidator

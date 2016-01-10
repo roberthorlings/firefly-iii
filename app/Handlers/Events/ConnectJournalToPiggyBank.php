@@ -2,9 +2,9 @@
 
 use Auth;
 use FireflyIII\Events\JournalCreated;
-use FireflyIII\Models\PiggyBank;
-use FireflyIII\Models\PiggyBankEvent;
-use FireflyIII\Models\TransactionJournal;
+use FireflyIII\Models\{
+    PiggyBank, PiggyBankEvent, TransactionJournal
+};
 
 /**
  * Class ConnectJournalToPiggyBank

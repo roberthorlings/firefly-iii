@@ -3,11 +3,11 @@
 namespace FireflyIII\Repositories\Journal;
 
 use Carbon\Carbon;
-use FireflyIII\Models\Transaction;
-use FireflyIII\Models\TransactionJournal;
-use FireflyIII\Models\TransactionType;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
+use FireflyIII\Models\{
+    Transaction, TransactionJournal, TransactionType
+};
 
 /**
  * Interface JournalRepositoryInterface
