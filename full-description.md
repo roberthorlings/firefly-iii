@@ -5,21 +5,27 @@ permalink: /description/
 show: yes
 ---
 
-This is the full description of how Firefly III works. A note: since Firefly III has been built on how _I_ manage my finances, please read this carefully so we match on how to do things.
+This is the full description of how Firefly III works.
+
+Firefly III has been built around how I manage my finances. Please read this carefully so we match on how to do things.
 
 ## The general idea
 
-After being a grownup for a while I noticed I was living from paycheck to paycheck and it kind of sucked. So I decided to clean house. First thing I did was simple: start living from the first day of the month until the last. This meant that I had to do a few things:
+After being a grownup for a while I noticed I was living from paycheck to paycheck. I could not save money. I just waited to get paid.
 
-1. Get paid. _Immediately_ with no penny missing, I dropped this entire amount into my savings account.
-2. That first month (I get paid on the 23rd) I had to stop spending money from that salary for a full week until the month was over. This was _hard_.
-3. At the end of the month I moved the money back to my checking account. So I moved it away on the 23rd, and moved it back on the 1st.
-4. Then, I lived through the month. Up until the 23rd everything was going fine. I kept track of _all_ my expenses.
-5. On the 23rd (the second time) I got paid again. Yay! Quickly move to step 1 and put all of that money on my savings account.
-6. Finish the month. Preferably not in the red.
-7. It was the first of the month again. Move the money to my checking account, and back to step one.
+The first thing I did was simple: I started living from the first day of the month until the last. This meant that I had to do a few things:
 
-This procedure allowed me to program a very simple tool (the original Firefly) which held very simple things: transactions. Oh and some accounts to keep track of the money. But that was basically it. It showed me where my money went.
+1. On the day I get paid, I move my entire salary to my savings account.
+2. On the _last_ day of the month, I think how much money I will need in the next month.
+3. On the _first_ day of the month, put that amount in my checking account.
+
+So if you get paid on the 23rd of the month, your salary sits in your savings account from the 23rd until the first day of the month, when you move (part of it) back to your checking account. If you
+get paid every week, this routine repeats weekly.
+
+This is difficult the first few times, but after a while you'll notice that you have (pretty effectively) moved your routine away from your salary and income. This alone
+gives you great financial stability. 
+
+This procedure allowed me to program a very simple tool (the original "Firefly") which held very simple things: transactions. Oh and some accounts to keep track of the money. But that was basically it. It showed me where my money went.
 
 In those early, exciting days, all I did was live from the 1st to the 31st of the month. This helped me save a lot of money already. The rest followed. Read below!
 
@@ -30,7 +36,7 @@ There are three kinds of accounts in Firefly III:
 * **Asset accounts**
   * Asset accounts hold your money. Your bank account is an asset account. Your savings account is an asset account. They would be called "Savings account" or "Checking account". These accounts can be created with an initial (negative) balance, which is useful since you won't be entering your entire financial history.
 * **Expense accounts**
-  * Expense accounts are stores, shops, online things, whatever. For example: "Target", "Thinkgeek" or wherever you get stuff.
+  * Expense accounts are stores, shops, online things, whatever. For example: "Target", "Thinkgeek", "Walmart" or wherever you buy stuff.
 * **Revenue accounts**
   * Revenue accounts are the places you get money from. Ie. "my mom", "my job" or "the gubberment".
 
@@ -55,8 +61,10 @@ Transactions have a few useful fields: a description, the amount (duh), the date
 In Firefly, a transaction can be a withdrawal, a deposit or a transfer. Beyond the obvious, they are slightly different from one another:
 
 - Withdrawals have a dynamic "expense account" which you can fill in freely. If you go to a new store, simply enter the withdrawal with the new store as the expense account, and Firefly will start tracking it automatically.
-- Deposits don't have budgets, but do have dynamic "revenue accounts". This works in the same way as withdrawals do.
-- Transfers can be linked to piggy banks. So you could move € 200 to your savings account and have it added to your piggy bank "new couch". Transfers don't have budgets either.
+- Deposits have dynamic "revenue accounts". This works in the same way as withdrawals do.
+- Transfers can be linked to piggy banks. So you could move € 200 to your savings account and have it added to your piggy bank "new couch".
+
+Withdrawals can also be assigned a "budget".
 
 ## Budgets
 
@@ -97,9 +105,9 @@ The rule of thumb is: would you make a real life envelope for it? If yes: budget
 
 ## Tags
 
-Tags are an extension of categories and meant to expand on the meta-data included in a transaction. The idea is that you could add stuff like "should-not-have-bought-this" or "overly-expensive-gadget".
+Tags are an extension of categories and meant to expand on the meta-data included in a transaction. You can add multiple tags to a transaction.
 
-Tags are currently implemented in Firefly, although you cannot _see_ them everywhere. Nor can you see nice overviews of tags. This is all coming. However, some important features of tags have already been implemented.
+Firefly has implemented tags but they're not really meant to group transactions together, as you might think. This is because I haven't gotten around to it yet. Apart from the "normal" tags, Firefly supports two other types of tags. This is pretty advanced stuff though.
 
 ### Advance payments
 
@@ -125,4 +133,4 @@ Rent. Comes back every month. Create a bill and Firefly will not only match new 
 
 ## Reports 
 
-Speaks for itself.
+Will show you how you have been doing.

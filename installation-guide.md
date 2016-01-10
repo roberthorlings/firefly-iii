@@ -6,19 +6,7 @@ permalink: /installation-guide/
 
 # Normal installation
 
-To install Firefly III you'll need to have the following:
-
-* A web server (Apache, nginx);
-* PHP 5.6+
-* [PHP BCMath Arbitrary Precision Mathematics](http://php.net/manual/en/book.bc.php), a PHP module.
-* [PHP Mcrypt](http://php.net/manual/en/book.mcrypt.php)
-* [PHP MBstring](http://php.net/manual/en/book.mbstring.php)
-* A GMail address or other mailing facilities.
-* Access to [Composer](https://getcomposer.org/)
-* Make sure you have a MySQL database ready, together with the username and password for that database.
-* Firefly III has a lot of dependencies. It helps if you have a Github account.
-
-Because Firefly III needs some special tools to install it, you must have access to the terminal on your web server. It's simply not enough to have web hosting where you may upload stuff. In theory however, it is possible to do all of this locally and then upload it to your web server.
+Have you seen the [system requirements](../system-requirements/)? If so, please continue!
 
 ## Installation steps
 

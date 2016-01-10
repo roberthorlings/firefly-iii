@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "About Firefly III"
+title:  "Welcome to Firefly III"
 date:   2016-01-09 09:23:50
 ---
 
