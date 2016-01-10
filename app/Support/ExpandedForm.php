@@ -53,7 +53,7 @@ class ExpandedForm
         $value           = $this->fillFieldValue($name, $value);
         $options['step'] = 'any';
         $options['min']  = '0.01';
-        $defaultCurrency = isset($options['currency']) ? $options['currency'] : Amt::getDefaultCurrency();
+        $defaultCurrency = $options['currency'] ?? Amt::getDefaultCurrency();
         $currencies      = Amt::getAllCurrencies();
         unset($options['currency']);
         unset($options['placeholder']);
@@ -157,7 +157,7 @@ class ExpandedForm
         $classes         = $this->getHolderClasses($name);
         $value           = $this->fillFieldValue($name, $value);
         $options['step'] = 'any';
-        $defaultCurrency = isset($options['currency']) ? $options['currency'] : Amt::getDefaultCurrency();
+        $defaultCurrency = $options['currency'] ?? Amt::getDefaultCurrency();
         $currencies      = Amt::getAllCurrencies();
         unset($options['currency']);
         unset($options['placeholder']);

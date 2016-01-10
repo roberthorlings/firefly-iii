@@ -306,7 +306,7 @@ class FireflyValidator extends Validator
      */
     public function validateUniquePiggyBankForUser($attribute, $value, $parameters)
     {
-        $exclude = isset($parameters[0]) ? $parameters[0] : null;
+        $exclude = $parameters[0] ?? null;
         $query   = DB::table('piggy_banks');
         $query->whereNull('piggy_banks.deleted_at');
         $query->leftJoin('accounts', 'accounts.id', '=', 'piggy_banks.account_id');
