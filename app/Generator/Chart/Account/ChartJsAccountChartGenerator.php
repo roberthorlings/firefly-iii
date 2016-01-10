@@ -98,13 +98,13 @@ class ChartJsAccountChartGenerator implements AccountChartGenerator
             ];
             $current  = clone $start;
             $range    = Steam::balanceInRange($account, $start, clone $end);
-            $previous = round(array_values($range)[0], 2);
+            $previous = array_values($range)[0];
             while ($current <= $end) {
                 $format  = $current->format('Y-m-d');
-                $balance = isset($range[$format]) ? round($range[$format], 2) : $previous;
+                $balance = $range[$format] ?? $previous;
 
-                $set['data'][] = $balance;
-                $previous      = $balance;
+                $set['data'][] = round($balance, 2);
+                $previous      = round($balance, 2);
                 $current->addDay();
             }
             $data['datasets'][] = $set;
@@ -142,11 +142,11 @@ class ChartJsAccountChartGenerator implements AccountChartGenerator
 
         while ($end >= $current) {
             $theDate = $current->format('Y-m-d');
-            $balance = isset($range[$theDate]) ? $range[$theDate] : $previous;
+            $balance = $range[$theDate] ??  $previous;
 
             $data['labels'][]              = $current->formatLocalized($format);
-            $data['datasets'][0]['data'][] = $balance;
-            $previous                      = $balance;
+            $data['datasets'][0]['data'][] = round($balance,2);
+            $previous                      = round($balance,2);
             $current->addDay();
         }
 
