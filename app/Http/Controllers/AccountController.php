@@ -165,9 +165,9 @@ class AccountController extends Controller
 
         $accounts->each(
             function (Account $account) use ($activities, $startBalances, $endBalances) {
-                $account->lastActivityDate = $this->isInArray($activities, $account->id);
-                $account->startBalance     = $this->isInArray($startBalances, $account->id);
-                $account->endBalance       = $this->isInArray($endBalances, $account->id);
+                $account->lastActivityDate = $activities[$account->id] ?? null;
+                $account->startBalance     = $startBalances[$account->id] ?? null;
+                $account->endBalance       = $endBalances[$account->id] ?? null;
             }
         );
 
@@ -272,22 +272,6 @@ class AccountController extends Controller
         // redirect to previous URL.
         return redirect(Session::get('accounts.edit.url'));
 
-    }
-
-
-    /**
-     * @param array $array
-     * @param       $entryId
-     *
-     * @return null|mixed
-     */
-    protected function isInArray(array $array, $entryId)
-    {
-        if (isset($array[$entryId])) {
-            return $array[$entryId];
-        }
-
-        return null;
     }
 
 }

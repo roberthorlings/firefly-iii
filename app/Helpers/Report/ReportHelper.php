@@ -265,7 +265,7 @@ class ReportHelper implements ReportHelperInterface
                     return $rep->budget_id == $budget->id;
                 }
             );
-            $totalSpent  = isset($allTotalSpent[$budget->id]) ? $allTotalSpent[$budget->id] : [];
+            $totalSpent  = $allTotalSpent[$budget->id] ?? [];
 
             // no repetition(s) for this budget:
             if ($repetitions->count() == 0) {
