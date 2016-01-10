@@ -110,7 +110,7 @@ class SingleCategoryRepository extends ComponentRepository implements SingleCate
      *
      * @return Collection
      */
-    public function getJournals(Category $category, $page)
+    public function getJournals(Category $category, int $page)
     {
         $offset = $page > 0 ? $page * 50 : 0;
 

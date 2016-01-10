@@ -67,7 +67,7 @@ interface SingleCategoryRepositoryInterface
      *
      * @return Collection
      */
-    public function getJournals(Category $category, $page);
+    public function getJournals(Category $category, int $page);
 
 
     /**

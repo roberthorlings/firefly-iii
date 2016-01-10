@@ -368,7 +368,7 @@ class BudgetRepository extends ComponentRepository implements BudgetRepositoryIn
      *
      * @return LengthAwarePaginator
      */
-    public function getJournals(Budget $budget, LimitRepetition $repetition = null, $take = 50)
+    public function getJournals(Budget $budget, LimitRepetition $repetition = null, int $take = 50)
     {
         $offset     = intval(Input::get('page')) > 0 ? intval(Input::get('page')) * $take : 0;
         $setQuery   = $budget->transactionJournals()->withRelevantData()->take($take)->offset($offset)

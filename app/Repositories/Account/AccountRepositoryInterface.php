@@ -25,13 +25,13 @@ interface AccountRepositoryInterface
     public function countAccounts(array $types);
 
     /**
-     * @param $accountId
+     * @param int $accountId
      *
      * @deprecated
      *
      * @return Account
      */
-    public function find($accountId);
+    public function find(int $accountId);
 
     /**
      * @param Account $account

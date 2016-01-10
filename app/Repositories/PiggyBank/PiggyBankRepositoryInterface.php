@@ -63,7 +63,7 @@ interface PiggyBankRepositoryInterface
      *
      * @return void
      */
-    public function setOrder($piggyBankId, $order);
+    public function setOrder(int $piggyBankId, int $order);
 
 
     /**
