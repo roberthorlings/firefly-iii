@@ -39,8 +39,8 @@ class ChartJsAccountChartGenerator implements AccountChartGenerator
         $accounts->each(
             function (Account $account) use ($startBalances, $endBalances) {
                 $id                  = $account->id;
-                $startBalance        = $this->isInArray($startBalances, $id);
-                $endBalance          = $this->isInArray($endBalances, $id);
+                $startBalance        = $startBalances[$id] ?? '0';
+                $endBalance          = $endBalances[$id] ?? '0';
                 $diff                = bcsub($endBalance, $startBalance);
                 $account->difference = round($diff, 2);
             }
@@ -61,22 +61,6 @@ class ChartJsAccountChartGenerator implements AccountChartGenerator
 
         return $data;
     }
-
-    /**
-     * @param $array
-     * @param $entryId
-     *
-     * @return string
-     */
-    protected function isInArray($array, $entryId)
-    {
-        if (isset($array[$entryId])) {
-            return $array[$entryId];
-        }
-
-        return '0';
-    }
-
 
     /**
      * @param Collection $accounts
