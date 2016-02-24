@@ -12,6 +12,7 @@ declare(strict_types = 1);
 namespace FireflyIII\Console;
 
 use FireflyIII\Console\Commands\UpgradeFireflyInstructions;
+use FireflyIII\Console\Commands\ImportRules;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -30,6 +31,7 @@ class Kernel extends ConsoleKernel
     protected $commands
         = [
             UpgradeFireflyInstructions::class,
+            ImportRules::class,
         ];
 
     /**
