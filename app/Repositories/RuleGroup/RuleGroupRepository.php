@@ -66,11 +66,15 @@ class RuleGroupRepository implements RuleGroupRepositoryInterface
     }
 
     /**
+     * @param User $user    User to get the highest order for. Defaults to the user currently logged in
      * @return int
      */
-    public function getHighestOrderRuleGroup()
+    public function getHighestOrderRuleGroup($user = null)
     {
-        $entry = Auth::user()->ruleGroups()->max('order');
+        if($user == null)
+            $user = Auth::user();    
+        
+        $entry = $user->ruleGroups()->max('order');
 
         return intval($entry);
     }
@@ -145,13 +149,17 @@ class RuleGroupRepository implements RuleGroupRepositoryInterface
     }
 
     /**
+     * @param User $user    User to reset the rulegroup order for. Defaults to the user currently logged in
      * @return bool
      */
-    public function resetRuleGroupOrder()
+    public function resetRuleGroupOrder($user = null)
     {
-        Auth::user()->ruleGroups()->whereNotNull('deleted_at')->update(['order' => 0]);
+        if($user == null) 
+            $user = Auth::user();
+        
+        $user->ruleGroups()->whereNotNull('deleted_at')->update(['order' => 0]);
 
-        $set   = Auth::user()->ruleGroups()->where('active', 1)->orderBy('order', 'ASC')->get();
+        $set   = $user->ruleGroups()->where('active', 1)->orderBy('order', 'ASC')->get();
         $count = 1;
         /** @var RuleGroup $entry */
         foreach ($set as $entry) {
@@ -191,12 +199,15 @@ class RuleGroupRepository implements RuleGroupRepositoryInterface
 
     /**
      * @param array $data
-     *
+     * @param User $user User to store the rulegroup for. Defaults to the user currently logged in
      * @return RuleGroup
      */
-    public function store(array $data)
+    public function store(array $data, $user = null)
     {
-        $order = $this->getHighestOrderRuleGroup();
+        if($user == null) 
+            $user = Auth::user();
+        
+        $order = $this->getHighestOrderRuleGroup($user);
 
         $newRuleGroup = new RuleGroup(
             [
@@ -210,7 +221,7 @@ class RuleGroupRepository implements RuleGroupRepositoryInterface
             ]
         );
         $newRuleGroup->save();
-        $this->resetRuleGroupOrder();
+        $this->resetRuleGroupOrder($user);
 
         return $newRuleGroup;
     }
@@ -231,5 +242,15 @@ class RuleGroupRepository implements RuleGroupRepositoryInterface
         $this->resetRuleGroupOrder();
 
         return $ruleGroup;
+    }
+    
+    /**
+     * Finds a rule group by title
+     * @param string $title
+     * @return RuleGroup|null
+     */
+    public function findByTitle(User $user, $title)
+    {
+        return $user->ruleGroups()->where('title', $title)->first();
     }
 }

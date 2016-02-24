@@ -205,7 +205,7 @@ class RuleRepository implements RuleRepositoryInterface
     public function store(array $data)
     {
         /** @var RuleGroup $ruleGroup */
-        $ruleGroup = Auth::user()->ruleGroups()->find($data['rule_group_id']);
+        $ruleGroup = RuleGroup::find($data['rule_group_id']);
 
         // get max order:
         $order = $this->getHighestOrderInRuleGroup($ruleGroup);

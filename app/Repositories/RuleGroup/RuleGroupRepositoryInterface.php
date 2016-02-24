@@ -88,5 +88,11 @@ interface RuleGroupRepositoryInterface
      */
     public function update(RuleGroup $ruleGroup, array $data);
 
-
+    /**
+     * Finds a rule group by title
+     * @param unknown $title
+     * @return RuleGroup
+     */
+    public function findByTitle(User $user, $title); 
+    
 }
